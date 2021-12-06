@@ -1,10 +1,11 @@
+import random
+
 YourChosenNumbers = []
 reruns = 0
 
 def NumbersOfTheDay():
-    
-    return 
-
+    WinningNumbers = sorted(random.randint(range(0,10), 3)) 
+    return WinningNumbers
 
 def PickThree():
     for numbers in range(3):
@@ -20,6 +21,19 @@ def PickThree():
                 print ("Thank you for playing...")    
     
     return sorted(YourNumbers)
+
+def DidYouWin(): 
+    
+    if ChosenNumbersAre == WinningNumbersAre:
+        print ("Winner")        
+        print ("Your numbers are: ", ChosenNumbersAre)
+        print ("The winning numbers were: ", WinningNumbersAre)
+    else            
+        print ("You loss")
+
+
+ChosenNumbersAre = PickThree()
+WinningNumbersAre = NumbersOfTheDay()
 
 
 

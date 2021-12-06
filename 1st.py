@@ -1,33 +1,48 @@
-import random
-YourChosenNumbers = [] 
-Picks = 3
+Rerun = True
 
-def YourPicks():
-    while Picks > len(YourChosenNumbers):
+while Rerun:
+    import random
+    YourChosenNumbers = []; LotteryDigits = []
+    Min = 0; Max = 9; LuckyDigits = random.randint(Min, Max)
+
+
+
+
+
+    for digits in range(3):
         ThinkOfYourPick = int(input("Pick your lucky numbers: "))
         if 0 <= ThinkOfYourPick <= 9:
             YourChosenNumbers.append(ThinkOfYourPick)
         else:
             print ("Error!, it should be within the Min&Max range")
-    
-    SortEach = sorted(YourChosenNumbers)
-    return SortEach
+            ThinkOfYourPick = int(input("Pick your lucky numbers: "))
+            YourChosenNumbers.append(ThinkOfYourPick)
+        SortEach = sorted(YourChosenNumbers)
+        
 
+    for luckydigits in range(3):
+        while LuckyDigits in LotteryDigits:
+            LuckyDigits = random.randint(Min, Max)
+        LotteryDigits.append(LuckyDigits)
+        
 
-def TheWinningPicks():
-    return sorted(random.sample(range(0, 9), Picks))
-    
-
-
-def DidYouWin():
-    if YourNumbers == WinningNumbers:
+    if ThinkOfYourPick in YourChosenNumbers == LotteryDigits:
         print ("Winner")
-        print ("Your Numbers", YourNumbers, "Vs, The Winning Digits", WinningNumbers)        
+        print ("Your Numbers", YourChosenNumbers, "Vs, The Winning Digits", LotteryDigits)        
     else:
         print ("You loss")
-        print ("Your Numbers", YourNumbers, "Vs, The Winning Digits", WinningNumbers)        
+        print ("Your Numbers", YourChosenNumbers, "Vs, The Winning Digits", LotteryDigits)        
+
         
-    
-YourNumbers = YourPicks()
-WinningNumbers = TheWinningPicks()
-Outcome = DidYouWin()
+    InitializeRerun = input("Would you like to play again?: ")
+    if InitializeRerun == 'Yes':
+        print ("Here we go again")
+        Rerun = True
+    elif InitializeRerun == 'No':
+        Rerun = False
+        print ("Well, Thanks for playing with us, Better luck next time!")
+        break
+    else:
+        Rerun = False
+        print ("Thank you for trying, Better luck next time around!")            
+        break

@@ -1,40 +1,33 @@
 import random
+YourChosenNumbers = [] 
+Picks = 3
 
-YourChosenNumbers = []
-reruns = 0
-
-def NumbersOfTheDay():
-    WinningNumbers = sorted(random.randint(range(0,10), 3)) 
-    return WinningNumbers
-
-def PickThree():
-    for numbers in range(3):
-        YourNumbers = int(input("Pick your three lucky numbrs: "))  
-        if YourNumbers >= 0 or YourNumbers <= 9:
-            YourChosenNumbers.append(YourNumbers)
+def YourPicks():
+    while Picks > len(YourChosenNumbers):
+        ThinkOfYourPick = int(input("Pick your lucky numbers: "))
+        if 0 <= ThinkOfYourPick <= 9:
+            YourChosenNumbers.append(ThinkOfYourPick)
         else:
-            Invalid = print("You entered wrong numbers, try again (y/n)? ") 
-            if Invalid == 'y':
-                YourNumbers = int(input("Pick your three lucky numbrs: "))
-                YourChosenNumbers.append(YourNumbers)
-            else:
-                print ("Thank you for playing...")    
+            print ("Error!, it should be within the Min&Max range")
     
-    return sorted(YourNumbers)
+    SortEach = sorted(YourChosenNumbers)
+    return SortEach
 
-def DidYouWin(): 
+
+def TheWinningPicks():
+    return sorted(random.sample(range(0, 9), Picks))
     
-    if ChosenNumbersAre == WinningNumbersAre:
-        print ("Winner")        
-        print ("Your numbers are: ", ChosenNumbersAre)
-        print ("The winning numbers were: ", WinningNumbersAre)
-    else            
+
+
+def DidYouWin():
+    if YourNumbers == WinningNumbers:
+        print ("Winner")
+        print ("Your Numbers", YourNumbers, "Vs, The Winning Digits", WinningNumbers)        
+    else:
         print ("You loss")
-
-
-ChosenNumbersAre = PickThree()
-WinningNumbersAre = NumbersOfTheDay()
-
-
-
-
+        print ("Your Numbers", YourNumbers, "Vs, The Winning Digits", WinningNumbers)        
+        
+    
+YourNumbers = YourPicks()
+WinningNumbers = TheWinningPicks()
+Outcome = DidYouWin()

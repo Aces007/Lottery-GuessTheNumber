@@ -1,5 +1,7 @@
+# This variable will initialize the while loop for the user to retry or play the game again... 
 Rerun = True
 
+# And we begin with the program, this while loop will initialize
 while Rerun:
     import random
     YourChosenNumbers = []; LotteryDigits = []

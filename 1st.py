@@ -1,9 +1,11 @@
 # This variable will initialize the while loop for the user to retry or play the game again... 
 Rerun = True
 
-# And we begin with the program, this while loop will initialize
+# And we begin with the program, this while loop will initialize the lottery program. 
 while Rerun:
     import random
+    # These will store the values of the randomly generated lottery digits done with the import random function above, and the chosen numbers 
+    # or "lucky" numbers you have chosen for yourself.
     YourChosenNumbers = []; LotteryDigits = []
     Min = 0; Max = 9; LuckyDigits = random.randint(Min, Max)
 

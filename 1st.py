@@ -12,7 +12,7 @@ while Rerun:
 
 
 
-
+# This will ask you for your lucky numbers should I call it and it 
     for digits in range(3):
         ThinkOfYourPick = int(input("Pick your lucky numbers: "))
         if 0 <= ThinkOfYourPick <= 9:
